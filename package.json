@@ -1,0 +1,16 @@
+{
+  "name": "github action sample app",
+  "version": "1.0.1",
+  "description": "Testing out github actions",
+  "author": {
+    "name": "Ranul",
+    "email": "ranuldeepanayake@outlook.com",
+    "url": "http://localhost:3000"
+  },
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
