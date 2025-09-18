@@ -1,4 +1,4 @@
-//This is a test app with a test comment.
+//This is a test app.
 
 const express = require("express");
 const app = express();
