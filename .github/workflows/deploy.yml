@@ -34,11 +34,13 @@ jobs:
 
     steps:
       - name: Deploy on EC2 via SSH
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY }}
+          protocol: tcp6
+          port: 22
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/private:gh-action-app
             docker stop node-app || true
