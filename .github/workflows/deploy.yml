@@ -33,10 +33,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Test connectivity
-        run: |
-          ping ec2-54-179-241-198.ap-southeast-1.compute.amazonaws.com
-
       - name: Deploy on EC2 via SSH
         uses: appleboy/ssh-action@master
         with:
