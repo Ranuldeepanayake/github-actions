@@ -35,8 +35,8 @@ jobs:
     steps:
       - name: Test connectivity
         run: |
-          ping 2406:da18:b89:7b01:cc76:2d6c:bd06:3e49 || true
-          telnet 2406:da18:b89:7b01:cc76:2d6c:bd06:3e49 22 || true
+          ping ec2-54-179-241-198.ap-southeast-1.compute.amazonaws.com || true
+          telnet ec2-54-179-241-198.ap-southeast-1.compute.amazonaws.com 22 || true
 
       - name: Deploy on EC2 via SSH
         uses: appleboy/ssh-action@master
@@ -44,7 +44,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY }}
-          protocol: tcp6
+          protocol: tcp
           port: 22
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/private:gh-action-app
