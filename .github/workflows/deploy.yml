@@ -33,6 +33,11 @@ jobs:
     needs: build
 
     steps:
+      - name: Test connectivity
+        run: |
+          ping 2406:da18:b89:7b01:cc76:2d6c:bd06:3e49 || true
+          telnet 2406:da18:b89:7b01:cc76:2d6c:bd06:3e49 22 || true
+
       - name: Deploy on EC2 via SSH
         uses: appleboy/ssh-action@master
         with:
